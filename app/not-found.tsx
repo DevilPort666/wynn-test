@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function NotFound() {
   return (
-    <div className="flex items-center justify-center bg-white px-6">
+    <div className="flex flex-1 items-center justify-center bg-white px-6 py-20">
       <div className="text-center max-w-xl">
         <motion.h1
           initial={{ opacity: 0, y: 40 }}

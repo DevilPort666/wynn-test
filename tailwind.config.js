@@ -6,6 +6,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        brown: {
+          700: '#4b2a0b', // 👈 tu color
+        },
+      },
       fontFamily: {
         caslon: ['"Libre Caslon Display"', 'serif'],
         avenir: ['Avenir', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],

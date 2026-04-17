@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 type HeaderProps = {
   logo?: any;
   siteName?: string;
@@ -23,7 +25,9 @@ export default function Header({ logo, siteName, navigation }: HeaderProps) {
       <div className="container mx-auto max-w-7xl flex items-center justify-between">
         <div className="flex items-center gap-3">
           {logoUrl && (
-            <img src={logoUrl} alt="logo" className="h-15 w-auto" />
+            <Link href="/" className="block">
+              <img src={logoUrl} alt="logo" className="h-15 w-auto cursor-pointer" />
+            </Link>
           )}
         </div>
 

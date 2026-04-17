@@ -21,9 +21,9 @@ export default async function RootLayout({
         <link href="https://fonts.cdnfonts.com/css/avenir" rel="stylesheet"/>
       </head>
 
-      <body className="font-caslon antialiased">
+      <body className="font-caslon antialiased min-h-screen flex flex-col">
         {header?.fields && <Header {...header.fields} />}
-        <main>{children}</main>
+        <main className="flex-1 flex flex-col">{children}</main>
         {footer?.fields && <Footer {...footer.fields} />}
       </body>
     </html>

@@ -1,21 +1,14 @@
 import { getPage } from '@/lib/api';
 import Renderer from '@/components/Renderer';
-import { notFound } from 'next/navigation';
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+export const revalidate = 10;
 
-  const page = await getPage(slug);
-
-  if (!page) notFound();
+export default async function Home() {
+  const page = await getPage('/'); 
 
   return (
     <main>
-      <Renderer components={page.fields.components as any} />
+      <Renderer components={page?.fields?.components || []} />
     </main>
   );
 }

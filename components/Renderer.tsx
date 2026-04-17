@@ -22,6 +22,8 @@ export default function Renderer({
   return (
     <>
       {components.map((item) => {
+        if (!item?.sys?.contentType?.sys?.id) return null;
+
         const type = item.sys.contentType.sys.id;
         const Component = componentMap[type];
 

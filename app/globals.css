@@ -8,6 +8,7 @@
 @theme {
   --font-caslon: "Libre Caslon Display", serif;
   --font-avenir: Avenir, "Helvetica Neue", sans-serif;
+  --color-brown-700: #4b2a0b;
 }
 
 @media (prefers-color-scheme: dark) {
