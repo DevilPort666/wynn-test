@@ -1,4 +1,3 @@
-// app/layout.tsx
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -17,15 +16,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          href="https://fonts.cdnfonts.com/css/libre-caslon-display"
-          rel="stylesheet"
+        <link href="https://fonts.cdnfonts.com/css/libre-caslon-display" rel="stylesheet"
         />
+        <link href="https://fonts.cdnfonts.com/css/avenir" rel="stylesheet"/>
       </head>
 
-      <body className="font-serif antialiased">
+      <body className="font-caslon antialiased">
         {header?.fields && <Header {...header.fields} />}
-        <main className="min-h-screen">{children}</main>
+        <main>{children}</main>
         {footer?.fields && <Footer {...footer.fields} />}
       </body>
     </html>

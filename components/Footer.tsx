@@ -14,12 +14,12 @@ export default function Footer({ links, copyrightText }: FooterProps) {
       <div className="container mx-auto max-w-7xl flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex flex-wrap gap-4 mb-3">
           {parsedLinks.map(({ label, href }, i) => (
-            <a key={i} href={href} className="hover:underline cursor-pointer">
+            <a key={i} href={href} className="hover:underline cursor-pointer font-avenir">
               {label}
             </a>
           ))}
         </div>
-        <p>{copyrightText}</p>
+        <p className="font-avenir">{copyrightText}</p>
       </div>
     </footer>
   );

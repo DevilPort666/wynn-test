@@ -31,7 +31,6 @@ export default function Promo({
         isRight ? 'md:flex-row-reverse' : ''
       }`}
     >
-      {/* IMAGE */}
       {imageUrl && (
         <motion.img
           src={imageUrl}
@@ -44,7 +43,6 @@ export default function Promo({
         />
       )}
 
-      {/* TEXT */}
       <motion.div
         className="md:w-1/2"
         initial={{ opacity: 0, x: isRight ? -60 : 60 }}
@@ -65,7 +63,7 @@ export default function Promo({
 
         {description && (
           <motion.p
-            className="mb-4 text-gray-600"
+            className="mb-4 text-gray-600 font-avenir tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -77,7 +75,7 @@ export default function Promo({
         {ctaUrl && ctaLabel && (
           <motion.a
             href={ctaUrl}
-            className="inline-block bg-black text-white px-4 py-2 rounded"
+            className="inline-block bg-black text-white px-4 py-2 rounded font-avenir"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}

@@ -1,4 +1,3 @@
-// components/registry.ts
 import Hero from './Hero';
 import Promo from './Promo';
 

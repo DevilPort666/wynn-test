@@ -5,9 +5,8 @@ import { motion } from 'framer-motion';
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-white px-6">
+    <div className="flex items-center justify-center bg-white px-6">
       <div className="text-center max-w-xl">
-        {/* 404 */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -17,7 +16,6 @@ export default function NotFound() {
           404
         </motion.h1>
 
-        {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -27,7 +25,6 @@ export default function NotFound() {
           Page not found
         </motion.h2>
 
-        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -37,7 +34,6 @@ export default function NotFound() {
           The page you’re looking for doesn’t exist or has been moved.
         </motion.p>
 
-        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}

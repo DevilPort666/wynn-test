@@ -19,17 +19,17 @@ export default function Header({ logo, siteName, navigation }: HeaderProps) {
   });
 
   return (
-    <header className="flex px-6 py-4 border-b">
+    <header className="flex px-6 py-4 border-b font-avenir">
       <div className="container mx-auto max-w-7xl flex items-center justify-between">
         <div className="flex items-center gap-3">
           {logoUrl && (
-            <img src={logoUrl} alt="logo" className="h-10 w-auto" />
+            <img src={logoUrl} alt="logo" className="h-15 w-auto" />
           )}
         </div>
 
         <nav className="flex gap-6">
           {items.map(({ label, href }, i) => (
-            <a key={i} href={href} className="text-sm hover:underline">
+            <a key={i} href={href} className="text-sm hover:underline font-avenir">
               {label}
             </a>
           ))}
