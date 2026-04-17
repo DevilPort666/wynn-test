@@ -56,6 +56,40 @@ A `getPage(slug)` utility fetches a Page entry by slug with all nested component
 
 ---
 
+## Data Fetching & Nested Reference Resolution
+ 
+Pages are fetched via the Contentful REST API using a custom `resolveIncludes` utility — no SDK dependency required.
+ 
+### Why a custom resolver?
+ 
+Contentful's REST API returns linked entries and assets as unresolved `Link` objects (`{ sys: { type: "Link", linkType: "Asset", id: "..." } }`). The actual data lives separately in `data.includes.Entry` and `data.includes.Asset`. To get usable data in components, these links need to be resolved recursively.
+ 
+### How it works
+ 
+Entries and assets are indexed into two separate maps by ID:
+ 
+```ts
+const entryMap = new Map(); // id → Entry
+const assetMap = new Map(); // id → Asset
+```
+ 
+Then `resolveItem` walks the tree recursively. The key detail is that when resolving an Entry link, the resolved entry's own fields are also recursively resolved — not returned raw:
+ 
+```ts
+if (item.sys.linkType === 'Entry') {
+  const resolved = entryMap.get(item.sys.id);
+  return resolved ? resolveItem(resolved) : item; // ← recursive, not just map.get()
+}
+```
+ 
+Without this, a nested structure like `Page → Hero (Entry) → backgroundImage (Asset)` would resolve the Hero entry but leave `backgroundImage` as an unresolved Link inside it.
+ 
+### Static generation
+ 
+`generateStaticParams` pulls all published slugs from Contentful at build time, and each page is statically generated via `getPage(slug)` with `include=10` to resolve deeply nested references.
+ 
+---
+
 ## The Promo Component (Key Deliverable)
 
 The requirement asked for a single component that renders two layout variants controlled entirely from Contentful — no code changes needed to switch between them.
